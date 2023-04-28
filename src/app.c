@@ -15,7 +15,7 @@ int main(void) {
     gpio_setup();
     usart_setup();
 
-    printf("App STARTED\n");
+    printf("New App STARTED\n");
 
     // Configure shell
     sShellImpl shell_impl = {
