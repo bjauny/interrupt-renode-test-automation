@@ -14,7 +14,7 @@ declare -r HOST_LOG_FILENAME=${HOST_LOG_PATH}/logs.txt
 
 declare -r DOCKER_TAG=renode_stm32f4
 declare -r DOCKER_WORKSPACE=/workspace
-declare -r DOCKER_TEST_RESULTS_PATH=${DOCKER_WORKSPACE}/test_results
+declare -r DOCKER_TEST_RESULTS_PATH=/tmp/test_results
 
 mkdir -p ${HOST_LOG_PATH}
 
