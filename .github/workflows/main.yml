@@ -10,6 +10,10 @@ jobs:
   build_and_test:
     runs-on: ubuntu-latest
 
+    env:
+    - name: SSL_CERT_DIR
+      value: "/etc/ssl/certs"
+
     steps:
     - uses: actions/checkout@v3
       with:
