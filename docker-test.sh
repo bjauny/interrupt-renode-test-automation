@@ -23,7 +23,7 @@ docker build -t ${DOCKER_TAG} -f ${HOST_ROOT_DIR}/Dockerfile .
 # running in `if` to avoid setting +e
 
 exit_code=0
-if ! docker run \
+if ! docker run -u $(id -u) \
   --log-driver=none -a stdout -a stderr \
   --volume ${HOST_ROOT_DIR}:${DOCKER_WORKSPACE} \
   --volume ${HOST_TEST_RESULTS_PATH}:${DOCKER_TEST_RESULTS_PATH} \
@@ -31,7 +31,7 @@ if ! docker run \
   --env RENODE_CHECKOUT=/home/developer/renode \
   --workdir ${DOCKER_WORKSPACE} \
   ${DOCKER_TAG} \
-  /bin/bash -c "chmod 777 ${HOST_TEST_RESULTS_PATH} && ls -l /tmp"
+  /bin/bash -c "touch ${DOCKER_TEST_RESULTS_PATH}/logs.txt"
 then
   echo "FAILED"
   exit_code=1
