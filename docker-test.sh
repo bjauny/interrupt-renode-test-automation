@@ -31,7 +31,7 @@ if ! docker run \
   --env RENODE_CHECKOUT=/home/developer/renode \
   --workdir ${DOCKER_WORKSPACE} \
   ${DOCKER_TAG} \
-  /bin/bash -c " touch ${DOCKER_TEST_RESULTS_PATH}/logs.txt"
+  /bin/bash -c "sudo touch ${DOCKER_TEST_RESULTS_PATH}/logs.txt"
 then
   echo "FAILED"
   exit_code=1
