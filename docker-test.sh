@@ -31,7 +31,7 @@ if ! docker run -u $(id -u) \
   --env RENODE_CHECKOUT=/home/developer/renode \
   --workdir ${DOCKER_WORKSPACE} \
   ${DOCKER_TAG} \
-  /bin/bash -c "./run_tests.sh 2>&1 > ${DOCKER_TEST_RESULTS_PATH}/logs.txt"
+  /bin/bash -c "${DOCKER_WORKSPACE}/run_tests.sh 2>&1 > ${DOCKER_TEST_RESULTS_PATH}/logs.txt"
 then
   echo "FAILED"
   exit_code=1
