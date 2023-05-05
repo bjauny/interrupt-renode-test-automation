@@ -31,7 +31,7 @@ if ! docker run \
   --env RENODE_CHECKOUT=/home/developer/renode \
   --workdir ${DOCKER_WORKSPACE} \
   ${DOCKER_TAG} \
-  /bin/bash -c "whoami && groups && ls -l /tmp"
+  /bin/bash -c "chmod 777 ${HOST_TEST_RESULTS_PATH} && ls -l /tmp"
 then
   echo "FAILED"
   exit_code=1
